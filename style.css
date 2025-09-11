@@ -104,13 +104,13 @@ ul {
 }
 
 .grow-shrink-2 {
-    animation-delay: 1s;
+    animation-delay: 0.5s;
     animation-duration: 2s;
     animation-name: grow-shrink;
 }
 
 .grow-shrink-3 {
-    animation-delay: 2s;
+    animation-delay: 1s;
     animation-duration: 2s;
     animation-name: grow-shrink;
 }
