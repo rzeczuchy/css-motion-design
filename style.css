@@ -1,3 +1,9 @@
+:root {
+    --bg-color: #fff;
+    --main-color: #333;
+    --disabled-color: #888;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -6,13 +12,14 @@
 
 body {
     font-family: Georgia, 'Times New Roman', Times, serif;
-    background-color: #fff;
-    color: #333;
+    background-color: var(--bg-color);
+    color: var(--main-color);
     padding: 2em;
     font-size: large;
     text-align: center;
     overflow-x: hidden;
     overflow-y: scroll;
+    min-height: 100vh;
 }
 
 h1 {
@@ -36,19 +43,25 @@ p {
 }
 
 a {
-    color: #333;
+    display: block;
+    padding: 0.3em;
+    color: var(--disabled-color);
     text-decoration: none;
     font-size: 1.5em;
     font-weight: 600;
     transition: all .3s ease-in-out;
 }
 
+a:link {
+    color: var(--main-color);
+}
+
 a:visited {
-    color: #333;
+    color: var(--main-color);
 }
 
 a:hover {
-    font-size: 1.55em;
+    font-size: 1.6em;
 }
 
 ul {
@@ -58,6 +71,9 @@ ul {
 .nav-link {
     height: 2em;
     margin: 1em 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .tiles {
@@ -72,7 +88,7 @@ ul {
 .tile {
     width: 16em;
     height: 16em;
-    border: 1px solid #333;
+    border: 1px solid var(--main-color);
 }
 
 /* ANIMATIONS */
