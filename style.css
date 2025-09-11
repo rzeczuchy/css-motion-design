@@ -5,10 +5,11 @@
 }
 
 body {
-    font-family: 'Courier New', Courier, monospace;
+    font-family: Georgia, 'Times New Roman', Times, serif;
     background-color: #fff;
     color: #333;
     padding: 2em;
+    font-size: large;
     text-align: center;
     overflow-x: hidden;
     overflow-y: scroll;
@@ -29,13 +30,33 @@ h6 {
 }
 
 p {
-    margin: 0.5em 0;
+    margin: 1em 0;
     transform: perspective(1px) translateZ(0);
     backface-visibility: hidden;
 }
 
-section {
-    padding: 2em;
+a {
+    color: #333;
+    text-decoration: none;
+    font-size: 1.5em;
+    font-weight: 600;
+    transition: all .3s ease-in-out;
+}
+
+a:visited {
+    color: #333;
+}
+
+a:hover {
+    font-size: 1.55em;
+}
+
+ul {
+    list-style: none;
+}
+
+.nav-link {
+    height: 2em;
     margin: 1em 0;
 }
 
