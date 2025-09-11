@@ -116,6 +116,28 @@ ul {
     }
 }
 
+.jitter {
+    animation-duration: 0.2s;
+    animation-iteration-count: infinite;
+    animation-name: jitter;
+}
+
+@keyframes jitter {
+    25%{
+        transform: translate(-1px, 1px);
+    }
+    50%{
+        transform: translate(1px, -1px);
+    }
+    75%{
+        transform: translate(-1px, 1px);
+    }
+    100%{
+        transform: translate(1px, -1px);
+    }
+    
+}
+
 /* Tiles: grow and shrink */
 
 .tiles {
