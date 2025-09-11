@@ -50,9 +50,11 @@ a {
     font-size: 1.5em;
     font-weight: 600;
     transition: all .3s ease-in-out;
+    cursor: not-allowed;
 }
 
 a:link {
+    cursor: pointer;
     color: var(--main-color);
 }
 
@@ -96,6 +98,7 @@ ul {
 .slide-in {
     animation-duration: 3s;
     animation-name: slide-in;
+    animation-timing-function: ease;
 }
 
 .grow-shrink-1 {
