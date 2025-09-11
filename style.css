@@ -78,6 +78,46 @@ ul {
     align-items: center;
 }
 
+/* ANIMATIONS */
+
+/* Simple typography */
+
+.slide-in {
+    animation-duration: 3s;
+    animation-name: slide-in;
+    animation-timing-function: ease;
+}
+
+@keyframes slide-in {
+    from {
+        translate: 100vw 0;
+    }
+
+    to {
+        translate: 0 0;
+    }
+}
+
+.pulsate {
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    animation-name: pulsate;
+}
+
+@keyframes pulsate {
+
+    30%,
+    90% {
+        scale: 100%;
+    }
+
+    50% {
+        scale: 110%;
+    }
+}
+
+/* Tiles: grow and shrink */
+
 .tiles {
     display: grid;
     width: fit-content;
@@ -91,14 +131,6 @@ ul {
     width: 16em;
     height: 16em;
     border: 1px solid var(--main-color);
-}
-
-/* ANIMATIONS */
-
-.slide-in {
-    animation-duration: 3s;
-    animation-name: slide-in;
-    animation-timing-function: ease;
 }
 
 .grow-shrink-1 {
@@ -118,34 +150,6 @@ ul {
     animation-name: grow-shrink;
 }
 
-.pulsate {
-    animation-duration: 1s;
-    animation-iteration-count: infinite;
-    animation-name: pulsate;
-}
-
-@keyframes slide-in {
-    from {
-        translate: 100vw 0;
-    }
-
-    to {
-        translate: 0 0;
-    }
-}
-
-@keyframes pulsate {
-
-    30%,
-    90% {
-        scale: 100%;
-    }
-
-    50% {
-        scale: 110%;
-    }
-}
-
 @keyframes grow-shrink {
 
     25%,
@@ -156,4 +160,52 @@ ul {
     50% {
         scale: 110%;
     }
+}
+
+/* Card glowing border */
+
+.card-glowing-border {
+    margin: 4em auto;
+    padding: 2em;
+    width: 16em;
+    background-color: var(--main-color);
+    color: var(--bg-color);
+    border-radius: 0.5em;
+    position: relative;
+}
+
+@property --angle {
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+}
+
+.card-glowing-border::after,
+.card-glowing-border::before {
+    --angle: 0deg;
+    content: "";
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-image: conic-gradient(from var(--angle), #f06, #20e, #f06);
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    z-index: -1;
+    border-radius: 0.5em;
+    padding: 0.5em;
+    animation: 3s glowing-border linear infinite;
+}
+
+@keyframes glowing-border {
+    from {
+        --angle: 0deg;
+    }
+    to {
+        --angle: 360deg;
+    }
+}
+
+.card-glowing-border::before {
+    filter: blur(1em);
 }
