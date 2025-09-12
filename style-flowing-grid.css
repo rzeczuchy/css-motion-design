@@ -1,0 +1,93 @@
+:root {
+    --timing-function: ease-in-out;
+    --duration: 5s;
+    --delay-difference: 0.5s;
+    --x-transform: 0.2em;
+    --y-transform: 0.5em;
+    --max-scale: 150%;
+}
+
+.flowing-grid {
+    margin: 1em auto 3em auto;
+    width: 20em;
+    height: 20em;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    column-gap: 2em;
+    row-gap: 2em;
+}
+
+.flowing-grid>* {
+    border: 1px solid blue;
+    border-radius: 50%;
+}
+
+.fluctuate-1 {
+    animation-delay: calc(var(--delay-difference) * -7);
+    animation-duration: var(--duration);
+    animation-iteration-count: infinite;
+    animation-name: fluctuate;
+    animation-timing-function: var(--timing-function);
+}
+
+.fluctuate-2 {
+    animation-delay: calc(var(--delay-difference) * -6);
+    animation-duration: var(--duration);
+    animation-iteration-count: infinite;
+    animation-name: fluctuate;
+    animation-timing-function: var(--timing-function);
+}
+
+.fluctuate-3 {
+    animation-delay: calc(var(--delay-difference) * -5);
+    animation-duration: var(--duration);
+    animation-iteration-count: infinite;
+    animation-name: fluctuate;
+    animation-timing-function: var(--timing-function);
+}
+
+.fluctuate-4 {
+    animation-delay: calc(var(--delay-difference) * -4);
+    animation-duration: var(--duration);
+    animation-iteration-count: infinite;
+    animation-name: fluctuate;
+    animation-timing-function: var(--timing-function);
+}
+
+.fluctuate-5 {
+    animation-delay: calc(var(--delay-difference) * -3);
+    animation-duration: var(--duration);
+    animation-iteration-count: infinite;
+    animation-name: fluctuate;
+    animation-timing-function: var(--timing-function);
+}
+
+.fluctuate-6 {
+    animation-delay: calc(var(--delay-difference) * -2);
+    animation-duration: var(--duration);
+    animation-iteration-count: infinite;
+    animation-name: fluctuate;
+    animation-timing-function: var(--timing-function);
+}
+
+.fluctuate-7 {
+    animation-delay: calc(var(--delay-difference) * -1);
+    animation-duration: var(--duration);
+    animation-iteration-count: infinite;
+    animation-name: fluctuate;
+    animation-timing-function: var(--timing-function);
+}
+
+@keyframes fluctuate {
+
+    0%,
+    100% {
+        transform: translate(0, 0);
+        scale: 100%;
+    }
+
+    50% {
+        transform: translate(var(--x-transform), var(--y-transform));
+        scale: var(--max-scale);
+    }
+}
