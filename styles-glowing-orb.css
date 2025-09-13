@@ -7,12 +7,11 @@
     --main-color: #ddd;
 }
 
-.glowing-orb {
+.glow {
     position: relative;
     margin: 3em auto;
     width: var(--orb-size);
     height: var(--orb-size);
-    background-color: var(--orb-color);
     border-radius: 50%;
 }
 
@@ -22,46 +21,147 @@
     inherits: false;
 }
 
-.glowing-orb::after,
-.glowing-orb::before {
-    --angle: 0deg;
+.glow::after,
+.glow::before {
     content: "";
     position: absolute;
     height: 100%;
     width: 100%;
-    background-image: conic-gradient(from var(--glow-angle), cornflowerblue, lightblue, cornflowerblue, lightblue, steelblue, cornflowerblue);
     top: 50%;
     left: 50%;
     translate: -50% -50%;
-    z-index: -1;
+    z-index: -2;
     border-radius: 50%;
-    padding: 1px;
-    animation: 10s animate-glow linear infinite;
-    filter: blur(1px);
 }
 
-.glowing-orb::before {
-    filter: blur(16px);
+.glow::after {
+    --glow-angle: 0deg;
+    background-image: conic-gradient(from var(--glow-angle), blue, red, white, steelblue, cornflowerblue, blue);
+    filter: blur(1em);
+    animation: 14s rotate-glow linear infinite, 3s scale-glow ease-in-out infinite;
 }
 
-@keyframes animate-glow {
-    0% {
+@keyframes rotate-glow {
+    from {
         --glow-angle: 0deg;
     }
 
-    25% {
-        --glow-angle: 250deg;
+    to {
+        --glow-angle: 360deg;
+    }
+}
+
+@keyframes scale-glow {
+    0% {
+        transform: scale(100%);
     }
 
     50% {
-        --glow-angle: 120deg;
-    }
-
-    75% {
-        --glow-angle: 50deg;
+        transform: scale(95%);
     }
 
     100% {
-        --glow-angle: 360deg;
+        transform: scale(100%);
     }
+}
+
+@property --glow-angle-2 {
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+}
+
+.glow::before {
+    --glow-angle-2: 0deg;
+    background-image: conic-gradient(from var(--glow-angle-2), transparent 47%, blue, lime, hotpink, white, red, hotpink, blue);
+    filter: blur(5em);
+    animation: 13s rotate-glow-2 linear infinite, 9s transform-glow ease-in-out infinite;
+}
+
+@keyframes transform-glow {
+    0% {
+        transform: scale(100%);
+        transform: translate(0 0);
+    }
+
+    25% {
+        transform: scale(105%);
+        transform: translate(1em, -1em);
+
+    }
+
+    50% {
+        transform: scale(90%);
+    }
+
+    75% {
+        transform: scale(115%);
+        transform: translate(-1em, 1em);
+
+    }
+
+    100% {
+        transform: scale(100%);
+        transform: translate(0 0);
+    }
+}
+
+@keyframes rotate-glow-2 {
+    from {
+        --glow-angle-2: 0deg;
+    }
+
+    to {
+        --glow-angle-2: 360deg;
+    }
+}
+
+@property --ring-angle {
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+}
+
+.ring {
+    --ring-angle: 0deg;
+    position: relative;
+    width: var(--orb-size);
+    height: var(--orb-size);
+    border-radius: 50%;
+}
+
+.ring::after {
+    content: "";
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    border-radius: 50%;
+    padding: 1px;
+    background-image: conic-gradient(from var(--ring-angle), cornflowerblue, lightblue, slateblue, cornflowerblue, lightblue, darkslateblue, cornflowerblue);
+    z-index: -1;
+    padding: 3px;
+    filter: blur(1px);
+    animation-delay: -2s;
+    animation: 4s rotate-ring linear infinite;
+}
+
+@keyframes rotate-ring {
+    from {
+        --ring-angle: 360deg;
+    }
+
+    to {
+        --ring-angle: 0deg;
+    }
+}
+
+.orb {
+    position: relative;
+    width: var(--orb-size);
+    height: var(--orb-size);
+    background-color: var(--orb-color);
+    border-radius: 50%;
 }
