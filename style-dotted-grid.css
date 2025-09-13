@@ -1,0 +1,31 @@
+:root {
+    --grid-spacing: 1em;
+    --grid-width: 20em;
+    --grid-height: 20em;
+    --dot-size: 1px;
+    --duration: 2s;
+}
+
+.dotted-grid {
+    margin: 1em auto;
+    width: var(--grid-width);
+    height: var(--grid-height);
+    border: 1px solid var(--main-color);
+    background-image: radial-gradient(var(--main-color) var(--dot-size), transparent 0);
+    background-size: var(--grid-spacing) var(--grid-spacing);
+    background-position: calc(var(--grid-spacing) - var(--dot-size));
+    animation-name: pan;
+    animation-duration: var(--duration);
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+@keyframes pan {
+    0% {
+        background-position: 0 0;
+    }
+
+    100% {
+        background-position: var(--grid-spacing) var(--grid-spacing);
+    }
+}
