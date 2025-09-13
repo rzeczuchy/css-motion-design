@@ -1,0 +1,67 @@
+:root {
+    --container-color: black;
+    --container-size: 30em;
+    --orb-color: black;
+    --orb-size: 10em;
+    --bg-color: black;
+    --main-color: #ddd;
+}
+
+.glowing-orb {
+    position: relative;
+    margin: 3em auto;
+    width: var(--orb-size);
+    height: var(--orb-size);
+    background-color: var(--orb-color);
+    border-radius: 50%;
+}
+
+@property --glow-angle {
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+}
+
+.glowing-orb::after,
+.glowing-orb::before {
+    --angle: 0deg;
+    content: "";
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-image: conic-gradient(from var(--glow-angle), cornflowerblue, lightblue, cornflowerblue, lightblue, steelblue, cornflowerblue);
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    z-index: -1;
+    border-radius: 50%;
+    padding: 1px;
+    animation: 10s animate-glow linear infinite;
+    filter: blur(1px);
+}
+
+.glowing-orb::before {
+    filter: blur(16px);
+}
+
+@keyframes animate-glow {
+    0% {
+        --glow-angle: 0deg;
+    }
+
+    25% {
+        --glow-angle: 250deg;
+    }
+
+    50% {
+        --glow-angle: 120deg;
+    }
+
+    75% {
+        --glow-angle: 50deg;
+    }
+
+    100% {
+        --glow-angle: 360deg;
+    }
+}
