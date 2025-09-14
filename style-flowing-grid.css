@@ -91,3 +91,12 @@
         scale: var(--max-scale);
     }
 }
+
+@media screen and (max-width: 680px) {
+    .flowing-grid {
+        width: 10em;
+        height: 10em;
+        column-gap: 1em;
+        row-gap: 1em;
+    }
+}

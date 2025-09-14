@@ -4,6 +4,7 @@
     --grid-height: 20em;
     --dot-size: 1px;
     --duration: 2s;
+    --mobile-scale: 0.7;
 }
 
 .dotted-grid {
@@ -27,5 +28,12 @@
 
     100% {
         background-position: var(--grid-spacing) var(--grid-spacing);
+    }
+}
+
+@media screen and (max-width: 680px) {
+    .dotted-grid {
+        width: calc(var(--grid-width) * var(--mobile-scale));
+        height: calc(var(--grid-height) * var(--mobile-scale));
     }
 }

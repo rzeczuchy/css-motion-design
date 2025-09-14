@@ -10,6 +10,11 @@
     box-sizing: border-box;
 }
 
+html {
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+
 body {
     font-family: Georgia, 'Times New Roman', Times, serif;
     background-color: var(--bg-color);
@@ -17,8 +22,6 @@ body {
     padding: 2em;
     font-size: large;
     text-align: center;
-    overflow-x: hidden;
-    overflow-y: scroll;
     min-height: 100vh;
 }
 

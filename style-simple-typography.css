@@ -1,3 +1,7 @@
+html, body {
+    overflow-x: hidden;
+}
+
 .slide-in {
     animation-duration: 3s;
     animation-name: slide-in;
@@ -39,17 +43,20 @@
 }
 
 @keyframes jitter {
-    25%{
+    25% {
         transform: translate(-1px, 1px);
     }
-    50%{
+
+    50% {
         transform: translate(1px, -1px);
     }
-    75%{
+
+    75% {
         transform: translate(-1px, 1px);
     }
-    100%{
+
+    100% {
         transform: translate(1px, -1px);
     }
-    
+
 }
