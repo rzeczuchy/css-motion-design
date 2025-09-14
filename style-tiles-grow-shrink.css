@@ -1,0 +1,66 @@
+.tiles {
+    display: grid;
+    width: fit-content;
+    grid-template-columns: 16em 16em 16em;
+    column-gap: 1em;
+    row-gap: 1em;
+    margin: 1em auto;
+}
+
+.tile {
+    width: 16em;
+    height: 16em;
+    border: 1px solid var(--main-color);
+}
+
+.grow-shrink-1 {
+    animation-duration: 2s;
+    animation-name: grow-shrink;
+}
+
+.grow-shrink-2 {
+    animation-delay: 0.5s;
+    animation-duration: 2s;
+    animation-name: grow-shrink;
+}
+
+.grow-shrink-3 {
+    animation-delay: 1s;
+    animation-duration: 2s;
+    animation-name: grow-shrink;
+}
+
+@keyframes grow-shrink {
+
+    25%,
+    75% {
+        scale: 100%;
+    }
+
+    50% {
+        scale: 110%;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+
+    .tiles {
+        grid-template-columns: 10em 10em 10em;
+    }
+
+    .tile {
+        width: 10em;
+        height: 10em;
+    }
+}
+
+@media screen and (max-width: 680px) {
+    .tiles {
+        grid-template-columns: 16em;
+    }
+
+    .tile {
+        width: 16em;
+        height: 16em;
+    }
+}
